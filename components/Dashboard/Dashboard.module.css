@@ -1,0 +1,260 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  filter: brightness(0.4);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 7, 0.65);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+.sub {
+  color: var(--grey);
+  font-size: 0.9rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Package grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  padding: 2rem 1.5rem;
+  background: rgba(10, 10, 20, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.6s ease both;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent, var(--blue));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px color-mix(in srgb, var(--accent, var(--blue)) 20%, transparent);
+}
+
+.card.popular {
+  border-color: var(--blue);
+  box-shadow: 0 0 40px rgba(0, 180, 255, 0.15);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--blue), var(--blue-dim));
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.cardIcon { font-size: 2rem; margin-bottom: 1rem; }
+
+.cardName {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.cardTagline {
+  font-size: 0.75rem;
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+
+.cardPrice {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent, var(--white));
+  margin-bottom: 0.25rem;
+}
+
+.cardDuration {
+  font-size: 0.7rem;
+  color: var(--grey);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.cardFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.cardFeatures li {
+  font-size: 0.78rem;
+  color: rgba(245, 245, 247, 0.7);
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cardFeatures li::before {
+  content: '✓';
+  color: var(--accent, var(--blue));
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+.more {
+  color: var(--grey) !important;
+  font-style: italic;
+}
+
+.cardBtn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, border-color 0.2s;
+}
+.cardBtn:hover {
+  background: rgba(0, 180, 255, 0.1);
+  border-color: var(--blue);
+}
+
+/* Modal */
+.modalBack {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal {
+  background: var(--dark-2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 460px;
+  width: 100%;
+  position: relative;
+  animation: fadeUp 0.3s ease;
+}
+
+.modalClose {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 1rem;
+  color: var(--grey);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.modalClose:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+.modalIcon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.modalTitle {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+}
+.modalTagline { color: var(--grey); font-size: 0.85rem; margin-bottom: 1rem; }
+.modalPrice {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--blue);
+  margin-bottom: 0.25rem;
+}
+.modalDeposit { font-size: 1rem; color: var(--grey); font-weight: 400; }
+.modalDuration { font-size: 0.8rem; color: var(--grey); margin-bottom: 1.5rem; }
+
+.modalFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.modalFeatures li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: rgba(245,245,247,0.85);
+}
+.modalFeatures li svg { color: var(--blue); flex-shrink: 0; }
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .grid { grid-template-columns: 1fr; }
+}

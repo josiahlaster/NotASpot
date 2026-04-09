@@ -1,0 +1,155 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--dark);
+  padding: 6rem 0;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 180, 255, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tag {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+.sub {
+  color: var(--grey);
+  font-size: 0.9rem;
+}
+
+/* Slider area */
+.sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sliderWrap { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.sliderImg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.sliderAfter {
+  transition: clip-path 0.05s;
+}
+
+.sliderLabel {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 4px 12px;
+  background: rgba(5, 5, 7, 0.7);
+  border-radius: 20px;
+  color: var(--grey);
+}
+
+.sliderLabelAfter {
+  left: auto;
+  right: 1rem;
+  color: var(--blue);
+}
+
+/* Handle */
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.handleLine {
+  flex: 1;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.handleKnob {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.sliderCaption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--grey);
+  letter-spacing: 0.05em;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 2rem;
+  font-size: 0.78rem;
+  color: var(--grey);
+}
+.note svg { color: var(--blue); flex-shrink: 0; }
