@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function SuccessPage() {
+function SuccessContent() {
   const params = useSearchParams();
   const sessionId = params.get('session_id');
   const [confNum] = useState(() => Math.random().toString(36).substring(2, 8).toUpperCase());
@@ -42,10 +42,10 @@ export default function SuccessPage() {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
         }}>
-          You're Booked!
+          You&apos;re Booked!
         </h1>
         <p style={{ color: 'rgba(245,245,247,0.7)', marginBottom: '1.5rem', lineHeight: 1.7 }}>
-          Your deposit has been received. We'll confirm your appointment details via email shortly.
+          Your deposit has been received. We&apos;ll confirm your appointment details via email shortly.
         </p>
 
         <div style={{
@@ -90,5 +90,17 @@ export default function SuccessPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={
+      <div style={{ minHeight: '100vh', background: 'var(--black)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ color: 'rgba(245,245,247,0.5)' }}>Loading...</p>
+      </div>
+    }>
+      <SuccessContent />
+    </Suspense>
   );
 }
