@@ -46,8 +46,7 @@ export default function Booking({ selectedPackage }: { selectedPackage: string }
     setError('');
     setLoading(true);
     try {
-      const apiBase = process.env.NEXT_PUBLIC_API_URL || '';
-      const res = await fetch(`${apiBase}/api/stripe`, {
+      const res = await fetch('/api/stripe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
