@@ -59,7 +59,11 @@
   gap: 2rem;
 }
 
-.sliderWrap { display: flex; flex-direction: column; gap: 0.75rem; }
+.sliderWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 
 .slider {
   position: relative;
@@ -70,7 +74,7 @@
   cursor: ew-resize;
   user-select: none;
   box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .sliderImg {
@@ -152,4 +156,8 @@
   font-size: 0.78rem;
   color: var(--grey);
 }
-.note svg { color: var(--blue); flex-shrink: 0; }
+
+.note svg {
+  color: var(--blue);
+  flex-shrink: 0;
+}

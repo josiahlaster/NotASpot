@@ -3,7 +3,7 @@ import { useRef, useState, useCallback } from 'react';
 import styles from './BackSeat.module.css';
 
 const PAIRS = [
-  { before: '/before_detail.png', after: '/after_detail.png', label: 'Full Exterior Detail' },
+  { before: '/before_detail.jpg', after: '/after_detail.jpg', label: 'Full Exterior Detail' },
 ];
 
 function Slider({ pair }: { pair: typeof PAIRS[0] }) {
@@ -94,7 +94,7 @@ export default function BackSeat() {
 
         <div className={styles.note}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+            <circle cx="12" cy="12" r="10" /><path d="M12 8v4M12 16h.01" />
           </svg>
           Results may vary based on vehicle condition. Contact us for a free assessment.
         </div>
