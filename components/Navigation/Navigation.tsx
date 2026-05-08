@@ -13,6 +13,13 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnScroll = () => setMenuOpen(false);
+    window.addEventListener('scroll', closeOnScroll, { passive: true });
+    return () => window.removeEventListener('scroll', closeOnScroll);
+  }, [menuOpen]);
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
